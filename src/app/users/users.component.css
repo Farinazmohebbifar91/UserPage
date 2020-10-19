@@ -1,0 +1,13 @@
+mat-form-field  {
+  width: 20%;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+@media screen and (max-width : 450px) {
+  mat-form-field{
+    width: 70%;
+  }
+}
