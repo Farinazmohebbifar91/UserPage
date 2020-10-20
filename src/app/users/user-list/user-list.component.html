@@ -5,5 +5,5 @@
     </ng-container>
     <mat-header-row
       *matHeaderRowDef="displayedColumns;sticky:true"></mat-header-row>
-    <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+    <mat-row *matRowDef="let row; columns:displayedColumns;" [routerLink]="['/user-detail', row.login]"></mat-row>
   </mat-table>

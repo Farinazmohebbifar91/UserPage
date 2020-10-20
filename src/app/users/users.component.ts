@@ -1,6 +1,8 @@
 import { UsersService } from './users.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from './user.model';
 
 @Component({
   selector: 'app-users',
@@ -9,10 +11,10 @@ import { NgForm } from '@angular/forms';
 })
 export class UsersComponent implements OnInit {
   isLoading = false;
-  users: any = [];
-  totalCount: number;
+  users: Array<User> = [];
   user: any = {};
-  constructor(private usersService: UsersService) { }
+  totalCount: number;
+  constructor(private usersService: UsersService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -22,12 +24,14 @@ export class UsersComponent implements OnInit {
       return;
     }
     this.isLoading = true;
-    this.usersService.searchUsers(form.value.username)
+    this.usersService.searchUsers(form.value.username);
+    this.usersService.getUserUpdateListener()
     .subscribe((data) => {
-      this.users = data.items.splice(0, 10);
-      this.totalCount = data.total_count;
+      this.users = data.users;
+      this.totalCount = data.userCount;
       this.isLoading = false;
     });
     form.resetForm();
   }
+
 }

@@ -1,0 +1,14 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<h3 class="text-center">User Page</h3>
+<hr/>
+
+<div class="text-center" *ngIf="user">
+  <img class="w-25 h-25" [src]="user.avatar_url">
+  <p class="font-weight-bold">{{user.login}}</p>
+</div>
+
+<hr/>
+<div>
+  <canvas id='barChart'>
+  </canvas>
+</div>

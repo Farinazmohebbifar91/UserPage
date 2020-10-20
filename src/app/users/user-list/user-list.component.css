@@ -2,3 +2,11 @@
   max-height: 350px;
   overflow-y: scroll;
 }
+
+.mat-row {
+  cursor: pointer;
+}
+
+.mat-row:nth-child(odd){
+  background-color:lightgray;
+}
